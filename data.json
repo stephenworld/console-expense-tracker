@@ -1,0 +1,38 @@
+{
+  "001": {
+    "title": "Coffee",
+    "description": "",
+    "category": "Shopping",
+    "amount": 2300
+  },
+  "002": {
+    "title": "Fuel",
+    "description": "",
+    "category": "Transportation",
+    "amount": 400000
+  },
+  "003": {
+    "title": "Airtime",
+    "description": "",
+    "category": "Utilities",
+    "amount": 2000
+  },
+  "004": {
+    "title": "Coffee",
+    "description": "",
+    "category": "Shopping",
+    "amount": 2000
+  },
+  "005": {
+    "title": "J",
+    "description": "J",
+    "category": "K",
+    "amount": 8
+  },
+  "006": {
+    "title": "Coffe",
+    "description": "D",
+    "category": "S",
+    "amount": 200
+  }
+}
