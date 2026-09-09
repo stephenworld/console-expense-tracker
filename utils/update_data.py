@@ -26,4 +26,4 @@ def update_data(new_values):
       json.dump(data, file, indent=2)
 
   print()
-  print(f"Successfully added entry with automatically generated ID: {new_id}")
+  print(f"Successfully added \"{new_values['title']}\" with automatically generated ID: {new_id}")
