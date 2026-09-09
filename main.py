@@ -2,14 +2,15 @@ from utils.welcome import welcome, handle_restart
 from utils.record_expense import record_expense
 from utils.clear_screen import clear_terminal
 from utils.update_data import update_data
+from utils.handle_history import handle_history
 clear_terminal()
 
 user_action = welcome()
-valid_actions = ["1", "2", "3", "4", "5"]
+valid_actions = ["1", "2", "3", "4"]
 
 while user_action not in valid_actions:
   clear_terminal()
-  print(f"'{user_action}' is invalid. Try [1-5] for valid actions\n")
+  print(f"'{user_action}' is invalid. Try [1-4] for valid actions\n")
   user_action = welcome()
 
 clear_terminal()
@@ -26,11 +27,31 @@ if user_action == "1":
     "category": category,
     "amount": amount,
   }
-
   clear_terminal()
   update_data(new_entry)
   handle_restart()
 
 elif user_action == "2":
-  pass
+  """
+  View and filter History
+  """
+  handle_history()
+  handle_restart()
 
+elif user_action == "3":
+  """
+  Spending Analytics
+  """
+  print("Spending Analytics...")
+  handle_restart()
+
+elif user_action == "4":
+  """
+  Export Data
+  """
+  print("Exporting data...")
+  handle_restart()
+
+else:
+  clear_terminal()
+  user_action = welcome()
