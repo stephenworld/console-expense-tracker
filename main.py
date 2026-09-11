@@ -15,43 +15,54 @@ while user_action not in valid_actions:
 
 clear_terminal()
 
+while True:
+  if user_action == "1":
+    """
+    Record New Expense
+    """
+    title, description, category, amount = record_expense()  
+    new_entry = {
+      "title": title,
+      "description": description,
+      "category": category,
+      "amount": amount,
+    }
+    clear_terminal()
+    update_data(new_entry)
+    user_action = handle_restart()
 
-if user_action == "1":
-  """
-  Record New Expense
-  """
-  title, description, category, amount = record_expense()  
-  new_entry = {
-    "title": title,
-    "description": description,
-    "category": category,
-    "amount": amount,
-  }
-  clear_terminal()
-  update_data(new_entry)
-  handle_restart()
+  elif user_action == "2":
+    """
+    View and filter History
+    """
+    clear_terminal()
+    handle_history()
+    user_action = handle_restart()
 
-elif user_action == "2":
-  """
-  View and filter History
-  """
-  handle_history()
-  handle_restart()
+  elif user_action == "3":
+    """
+    Spending Analytics
+    """
+    clear_terminal()
+    print("Spending Analytics...")
+    user_action = handle_restart()
 
-elif user_action == "3":
-  """
-  Spending Analytics
-  """
-  print("Spending Analytics...")
-  handle_restart()
+  elif user_action == "4":
+    """
+    Export Data
+    """
+    clear_terminal()
+    print("Exporting data...")
+    user_action = handle_restart()
 
-elif user_action == "4":
-  """
-  Export Data
-  """
-  print("Exporting data...")
-  handle_restart()
+  elif user_action == "y":
+    clear_terminal()
+    user_action = welcome()
 
-else:
-  clear_terminal()
-  user_action = welcome()
+  elif user_action == "n":
+    print("Exitted the program. Goodbye!")
+    break
+
+  else:
+    clear_terminal()
+    user_action = welcome()
