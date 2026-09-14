@@ -35,10 +35,28 @@ def show_expenses_by_category():
   Show expenses filtered by category
   """
   clear_terminal()
-  print(f"Showing Expenses in Categorys\n")
+  print(f"Showing Expenses in Categories\n")
 
   all_expenses = fetch_expenses()
+  if not all_expenses:
+    print("No expenses found.")
+    return
   
+  categories = []
+
+  for expense in all_expenses:
+    category = all_expenses[expense]['category']
+    if category not in categories:
+      categories.append(category)
+
+  print("-"*60)
+  print(f"{'ID':<5} {'Title':<15} {'Category':<25} {'Amount':<10}")
+  print("-"*60)
+
+  for category in categories:
+    for exp_id, details in all_expenses.items():
+      if details['category'] == category:
+        print(f"{exp_id:<5} {details['title']:<15} {details['category']:<25} {details['amount']:<10}")
 
 
 def handle_history():
