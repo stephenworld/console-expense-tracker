@@ -1,5 +1,5 @@
 from utils.clear_screen import clear_terminal
-actions = ["Show all expenses", "Filter by category", "Filter by amount range", "Search by title"]
+actions = ["Show all expenses", "Filter by category", "Filter by amount range", "Filter by title"]
 
 def fetch_expenses():
   """
@@ -29,13 +29,12 @@ def show_all_expenses():
   for expense in expenses:
     print(f"{expense:<5} {expenses[expense]['title']:<25} {expenses[expense]['category']:<25}")
 
-
 def show_expenses_by_category():
   """
   Show expenses filtered by category
   """
   clear_terminal()
-  print(f"Showing Expenses in Categories\n")
+  print(f"Showing Expenses by Categories\n")
 
   all_expenses = fetch_expenses()
   if not all_expenses:
@@ -57,6 +56,48 @@ def show_expenses_by_category():
     for exp_id, details in all_expenses.items():
       if details['category'] == category:
         print(f"{exp_id:<5} {details['title']:<15} {details['category']:<25} {details['amount']:<10}")
+
+def show_expenses_by_amount_range():
+  """
+  Show expenses filtered by amount
+  """
+  clear_terminal()
+  print(f"Showing Expenses by Amount\n")
+  
+  all_expenses = fetch_expenses()
+  if not all_expenses:
+    print("No expenses found.")
+    return
+
+  print("-"*60)
+  print(f"{'ID':<5} {'Title':<15} {'Category':<25} {'Amount':<10}")
+  print("-"*60)
+
+  sorted_expenses_by_amount = sorted(all_expenses.items(), key=lambda x: x[1]['amount'])
+
+  for ex_id, expense in sorted_expenses_by_amount:
+    print(f"{ex_id:<5} {expense['title']:<15} {expense['category']:<25} {expense['amount']:<10}")
+
+def show_expenses_by_amount_title():
+  """
+  Show expenses filtered by title
+  """
+  clear_terminal()
+  print(f"Showing Expenses by Title\n")
+  
+  all_expenses = fetch_expenses()
+  if not all_expenses:
+    print("No expenses found.")
+    return
+
+  print("-"*60)
+  print(f"{'ID':<5} {'Title':<15} {'Category':<25} {'Amount':<10}")
+  print("-"*60)
+
+  sorted_expenses_by_amount = sorted(all_expenses.items(), key=lambda x: x[1]['title'])
+
+  for ex_id, expense in sorted_expenses_by_amount:
+    print(f"{ex_id:<5} {expense['title']:<15} {expense['category']:<25} {expense['amount']:<10}")
 
 
 def handle_history():
@@ -89,9 +130,9 @@ def handle_history():
     """
     Filter by amount range
     """
-    print("Filtering by amount range...")
+    show_expenses_by_amount_range()
   elif user_action == "4":
     """
     Search by title
     """
-    print("Searching by title...")
+    show_expenses_by_amount_title()
