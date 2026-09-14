@@ -25,4 +25,14 @@ def record_expense():
       print("REQUIRED FIELD (e.g., 5000, 2000)")
       amount = input("Amount spent: ").strip()
 
+  while amount <= 0:
+    print("Amount must be greater than 0")
+    amount = input("Amount spent: ").strip()
+    while type(amount) is not int:
+      try:
+          amount = int(amount)
+      except ValueError:
+        print("REQUIRED FIELD (e.g., 5000, 2000)")
+        amount = input("Amount spent: ").strip()
+
   return title, description, category, amount
