@@ -3,10 +3,12 @@ from utils.record_expense import record_expense
 from utils.clear_screen import clear_terminal
 from utils.update_data import update_data
 from utils.handle_history import handle_history
+from utils.handle_analytics import handle_analytics
+
 clear_terminal()
 
 user_action = welcome()
-valid_actions = ["1", "2", "3", "4"]
+valid_actions = ["1", "2", "3"]
 
 while user_action not in valid_actions:
   clear_terminal()
@@ -44,15 +46,7 @@ while True:
     Spending Analytics
     """
     clear_terminal()
-    print("Spending Analytics...")
-    user_action = handle_restart()
-
-  elif user_action == "4":
-    """
-    Export Data
-    """
-    clear_terminal()
-    print("Exporting data...")
+    handle_analytics()
     user_action = handle_restart()
 
   elif user_action == "y":
