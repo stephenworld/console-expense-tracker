@@ -12,7 +12,7 @@ valid_actions = ["1", "2", "3"]
 
 while user_action not in valid_actions:
   clear_terminal()
-  print(f"'{user_action}' is invalid. Try [1-4] for valid actions\n")
+  print(f"'{user_action}' is invalid. Try [1-3] for valid actions\n")
   user_action = welcome()
 
 clear_terminal()
