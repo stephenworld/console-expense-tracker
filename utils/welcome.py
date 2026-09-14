@@ -1,5 +1,5 @@
 from utils.clear_screen import clear_terminal
-ACTIONS = [ "Record New Expense","View & Filter Expenses","Spending Analytics","Export Data", ]
+ACTIONS = [ "Record New Expense","View & Filter Expenses","Spending Analytics", ]
 
 def welcome():
   print("Spendr: \nA lightweight terminal expense tracker built to log, categorize, and analyze your daily spending without the bloat.\n")
@@ -13,4 +13,8 @@ def welcome():
 
 def handle_restart():
   res = input("\nWould you like to do anything else? (y/n): ").strip().lower()
+  while res not in ["y", "n"]:
+    clear_terminal()
+    print(f"'{res}' is an invalid action. Try [y/n] for valid actions")
+    res = input("Would you like to do anything else? (y/n): ").strip().lower()
   return res
