@@ -18,9 +18,9 @@ def record_expense():
         category = input("Category (e.g., Transportation, Shopping): ").strip().title()
   
   amount = input("Amount spent: ").strip()
-  while type(amount) is not int:
+  while type(amount) is not float:
     try:
-        amount = int(amount)
+        amount = float(amount)
     except ValueError:
       print("REQUIRED FIELD (e.g., 5000, 2000)")
       amount = input("Amount spent: ").strip()
@@ -32,7 +32,7 @@ def record_expense():
       try:
           amount = int(amount)
       except ValueError:
-        print("REQUIRED FIELD (e.g., 5000, 2000)")
+        print("REQUIRED FIELD (e.g., 5000, 2000, 200.00)")
         amount = input("Amount spent: ").strip()
 
   return title, description, category, amount

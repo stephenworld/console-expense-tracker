@@ -50,13 +50,13 @@ def show_expenses_by_category():
       categories.append(category)
 
   print("-"*70)
-  print(f"{'ID':<5} {'Title':<25} {'Category':<25} {'Amount':<10}")
+  print(f"{'ID':<5} {'Title':<25} {'Category':<25} ₦ {'Amount':<10}")
   print("-"*70)
 
   for category in categories:
     for exp_id, details in all_expenses.items():
       if details['category'] == category:
-        print(f"{exp_id:<5} {details['title']:<25} {details['category']:<25} {details['amount']:<10}")
+        print(f"{exp_id:<5} {details['title']:<25} {details['category']:<25} ₦ {details['amount']:,.2f}")
 
   print("-"*70)
 
@@ -79,7 +79,7 @@ def show_expenses_by_amount_range():
   sorted_expenses_by_amount = sorted(all_expenses.items(), key=lambda x: x[1]['amount'])
 
   for ex_id, expense in sorted_expenses_by_amount:
-    print(f"{ex_id:<5} {expense['title']:<25} {expense['category']:<25} {expense['amount']:<10}")
+    print(f"{ex_id:<5} {expense['title']:<25} {expense['category']:<25} ₦ {expense['amount']:,.2f}")
 
   print("-"*70)
 
@@ -102,7 +102,7 @@ def show_expenses_by_amount_title():
   sorted_expenses_by_amount = sorted(all_expenses.items(), key=lambda x: x[1]['title'])
 
   for ex_id, expense in sorted_expenses_by_amount:
-    print(f"{ex_id:<5} {expense['title']:<25} {expense['category']:<25} {expense['amount']:<10}")
+    print(f"{ex_id:<5} {expense['title']:<25} {expense['category']:<25} ₦ {expense['amount']:,.2f}")
 
   print("-"*70)
 

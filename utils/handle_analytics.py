@@ -42,7 +42,7 @@ def calculate_total_spending():
   print("Showing total spendings")
   print("-" * 60)
 
-  print(f"Total spending: {total_amount_spent}")
+  print(f"Total spending: {total_amount_spent:,.2f}")
   print(f"Total expenses: {total_expenses}")
 
 def calculate_by_category():
@@ -69,8 +69,8 @@ def calculate_by_category():
   print(f"{'Category':<30} {'Total Amount':<15}")
   print("-" * 60)
   for category, total in category_totals.items():
-    print(f"{category:<30} {total:<15}")
+    print(f"{category:<30} {total:,.2f}")
 
   print("-" * 60)
-  print(f"{"Total spending:":<30} {total_amount_spent:<30}")
+  print(f"{"Total spending:":<30} {total_amount_spent:,.2f}")
   print("-" * 60)
