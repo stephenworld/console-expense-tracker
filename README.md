@@ -58,7 +58,7 @@ python main.py
 python main.py
 ```
 
-You'll be greeted with a welcome screen showing three main options:
+You'll be greeted with a welcome screen showing five main options:
 
 ```
 Spendr:
@@ -68,6 +68,8 @@ analyze your daily spending without the bloat.
 1. Record New Expense
 2. View & Filter Expenses
 3. Spending Analytics
+4. Delete Expense
+5. Export Expenses
 ```
 
 ### Option 1: Record New Expense
@@ -104,9 +106,25 @@ Analyze your spending patterns:
 - **View total spend** - See total amount spent and number of expenses
 - **Breakdown by category** - Get a detailed breakdown of spending by category
 
-### Exiting
+### Option 4: Delete Expense
 
-After each action, you'll be prompted to continue or exit. Press `n` to exit the application.
+Remove unwanted or incorrect expense entries:
+
+- View your expense history
+- Select an expense by its ID
+- Confirm deletion to remove the entry permanently
+
+### Option 5: Export Expenses     # Main entry point and application loop
+├── README.md                       # Project documentation
+├── data.json                       # Auto-generated file storing all expenses
+└── utils/
+    ├── welcome.py                  # Welcome screen and restart handling
+    ├── record_expense.py           # Expense input and validation
+    ├── update_data.py              # Save expenses to data.json
+    ├── handle_history.py           # View and filter expenses
+    ├── handle_analytics.py         # Spending analytics
+    ├── handle_expense_deletion.py  # Delete expense functionality
+    └── clear_screen.py    ll be prompted to continue or exit. Press `n` to exit the application.
 
 ## Project Structure
 
@@ -159,14 +177,15 @@ All expenses are stored in a `data.json` file in the application root directory.
 - **User-Friendly**: Clear prompts and error messages guide users
 
 ### Recommendations for Future Enhancement
-
+Complete data export functionality (CSV, PDF, Excel)
 - Add date/timestamp tracking for expenses
-- Implement data export functionality (CSV, PDF)
-- Add expense edit/delete capabilities
+- Add expense edit capabilities
 - Include monthly/yearly spending reports
 - Add category management (create, delete, rename)
 - Implement recurring expense tracking
 - Add password protection for sensitive data
+- Include data visualization (charts, graphs)
+- Add budget setting and alerts
 - Include data visualization (charts, graphs)
 
 ## Contributing
