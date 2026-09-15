@@ -28,6 +28,7 @@ def show_all_expenses():
   print("-"*60)
   for expense in expenses:
     print(f"{expense:<5} {expenses[expense]['title']:<25} {expenses[expense]['category']:<25}")
+  print("-"*60)
 
 def show_expenses_by_category():
   """
@@ -48,14 +49,16 @@ def show_expenses_by_category():
     if category not in categories:
       categories.append(category)
 
-  print("-"*60)
-  print(f"{'ID':<5} {'Title':<15} {'Category':<25} {'Amount':<10}")
-  print("-"*60)
+  print("-"*70)
+  print(f"{'ID':<5} {'Title':<25} {'Category':<25} {'Amount':<10}")
+  print("-"*70)
 
   for category in categories:
     for exp_id, details in all_expenses.items():
       if details['category'] == category:
-        print(f"{exp_id:<5} {details['title']:<15} {details['category']:<25} {details['amount']:<10}")
+        print(f"{exp_id:<5} {details['title']:<25} {details['category']:<25} {details['amount']:<10}")
+
+  print("-"*70)
 
 def show_expenses_by_amount_range():
   """
@@ -69,14 +72,16 @@ def show_expenses_by_amount_range():
     print("No expenses found.")
     return
 
-  print("-"*60)
-  print(f"{'ID':<5} {'Title':<15} {'Category':<25} {'Amount':<10}")
-  print("-"*60)
+  print("-"*70)
+  print(f"{'ID':<5} {'Title':<25} {'Category':<25} {'Amount':<10}")
+  print("-"*70)
 
   sorted_expenses_by_amount = sorted(all_expenses.items(), key=lambda x: x[1]['amount'])
 
   for ex_id, expense in sorted_expenses_by_amount:
-    print(f"{ex_id:<5} {expense['title']:<15} {expense['category']:<25} {expense['amount']:<10}")
+    print(f"{ex_id:<5} {expense['title']:<25} {expense['category']:<25} {expense['amount']:<10}")
+
+  print("-"*70)
 
 def show_expenses_by_amount_title():
   """
@@ -90,15 +95,16 @@ def show_expenses_by_amount_title():
     print("No expenses found.")
     return
 
-  print("-"*60)
-  print(f"{'ID':<5} {'Title':<15} {'Category':<25} {'Amount':<10}")
-  print("-"*60)
+  print("-"*70)
+  print(f"{'ID':<5} {'Title':<25} {'Category':<25} {'Amount':<10}")
+  print("-"*70)
 
   sorted_expenses_by_amount = sorted(all_expenses.items(), key=lambda x: x[1]['title'])
 
   for ex_id, expense in sorted_expenses_by_amount:
-    print(f"{ex_id:<5} {expense['title']:<15} {expense['category']:<25} {expense['amount']:<10}")
+    print(f"{ex_id:<5} {expense['title']:<25} {expense['category']:<25} {expense['amount']:<10}")
 
+  print("-"*70)
 
 def handle_history():
   """

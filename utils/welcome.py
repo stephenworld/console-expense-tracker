@@ -1,5 +1,5 @@
 from utils.clear_screen import clear_terminal
-ACTIONS = [ "Record New Expense","View & Filter Expenses","Spending Analytics", ]
+ACTIONS = [ "Record New Expense","View & Filter Expenses","Spending Analytics", "Delete Expense", "Export to .txt" ]
 
 def welcome():
   print("Spendr: \nA lightweight terminal expense tracker built to log, categorize, and analyze your daily spending without the bloat.\n")
